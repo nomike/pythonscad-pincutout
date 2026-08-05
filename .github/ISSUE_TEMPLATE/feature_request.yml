@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose an API improvement or measured pin preset
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What design problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Hardware source and measurements
+      description: For presets, identify the product and explain how dimensions were measured.

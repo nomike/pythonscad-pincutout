@@ -1,0 +1,96 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pythonscad-pincutout"
+version = "0.0.0"
+description = "Reusable metal brooch-pin cutouts for PythonSCAD"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "nomike", email = "nomike@nomike.com" },
+]
+keywords = ["3d-printing", "brooch", "cad", "openscad", "pin", "pythonscad"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Manufacturing",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Multimedia :: Graphics :: 3D Modeling",
+  "Typing :: Typed",
+]
+dependencies = [
+  "pythonscad>=1.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/nomike/pythonscad-pincutout"
+Documentation = "https://github.com/nomike/pythonscad-pincutout#readme"
+Repository = "https://github.com/nomike/pythonscad-pincutout"
+Issues = "https://github.com/nomike/pythonscad-pincutout/issues"
+Changelog = "https://github.com/nomike/pythonscad-pincutout/blob/main/CHANGELOG.md"
+
+[dependency-groups]
+dev = [
+  "build>=1.2.2",
+  "pre-commit>=4.3",
+  "pyright>=1.1.403",
+  "pytest>=8.4",
+  "pytest-cov>=6.2",
+  "ruff>=0.12",
+  "twine>=6.1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pincutout"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/tests",
+  "/LICENSE",
+  "/README.md",
+  "/CHANGELOG.md",
+  "/CONTRIBUTING.md",
+  "/SECURITY.md",
+  "/VERSIONING.md",
+  "/PUBLISHING.md",
+  "/pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers --cov=pincutout --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["pincutout"]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+
+[tool.pyright]
+include = ["src"]
+pythonVersion = "3.10"
+stubPath = "typings"
+typeCheckingMode = "strict"
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["A", "ANN", "B", "C4", "D", "E", "F", "FA", "I", "N", "PERF", "PIE", "PT", "RUF", "SIM", "UP", "W"]
+ignore = ["D203", "D213"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ANN", "D"]

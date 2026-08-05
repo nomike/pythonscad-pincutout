@@ -1,0 +1,36 @@
+name: Bug report
+description: Report incorrect geometry or package behavior
+title: "fix: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve PythonSCAD Pin Cutout.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: pythonscad
+    attributes:
+      label: PythonSCAD version
+      placeholder: 1.2.0
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include dimensions, code, expected result, and actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include operating system, Python version, and installation method.
+    validations:
+      required: true
