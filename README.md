@@ -97,4 +97,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for commits and pull requests,
 
 ## License
 
-[MIT](LICENSE)
+[BSD 3-Clause](LICENSE)
